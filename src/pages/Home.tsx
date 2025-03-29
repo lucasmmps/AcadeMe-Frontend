@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { Button } from '../components/Button';
 import { TextBar } from '../components/TextBar';
 import logo from '../assets/white-logo.svg'
-import classroomMoldure from '../assets/classroom-moldure.svg';
+import classroom from '../assets/classroom.svg';
 import studentsMoldure from '../assets/happy-students.svg';
 import bioCaique from '../assets/Imagem bio Caique.svg';
 import bioGui from '../assets/Imagem bio_ fundoGuilherme.svg';
@@ -25,30 +25,26 @@ const Home: React.FC = () => {
     const handleGoToSignUp = () => {
       navigate('/SignUp'); 
     };
-
-
-//function Home() {
-
-  //const ref = useRef <null | HTMLButtonElement> (null)
   
   return (
     <div className="Home relative">
         
         {/** top section **/}
         <section id="top-section">
-            <div className="top-container">
-                <h1 className='title text-[#F0F2F5] text-[28px] font-bold pt- pb-2 pr-4 pl-4 text-left w-full'>AcadeMe Inc.</h1>
-                <div className="top-content flex flex-col items-center justify-center">
-                    <img src={logo} alt="logo" />
-                    <h1 className='slogan text-[#f4f0f5] text-[50px] mb-[21px]'>Seja bem-vindo ao seu<br/>futuro acadêmico</h1>
-                    <div className="top-buttons-container flex items-center gap-[24px]">
+            <div className="top-container flex flex-col items-center justify-center text-center">
+                <h1 className='title text-[#F0F2F5] text-[28px] font-bold pb-2 px-4 w-full text-left hidden md:block'>AcadeMe Inc.</h1>
+                <div className="top-content flex flex-col items-center justify-center text-center">
+                    <img src={logo} alt="logo" className="w-32 md:w-48" />
+                    <h1 className='slogan text-[#f4f0f5] text-[32px] md:text-[50px] mb-[21px]'>Seja bem-vindo ao seu<br/>futuro acadêmico</h1>
+                    <div className="top-buttons-container flex flex-col md:flex-row items-center justify-center gap-4 md:gap-[24px]">
                         <Button 
                             ref={ref}
                             size='default'
                             shape='pill'
                             className='min-w-[171px] px-8 py-2 flex items-center justify-center'                                                      
-                            onClick={handleGoToSignUp} // Redirecionamento para a tela do cadastro
-                            > Cadastre-se
+                            onClick={handleGoToSignUp}
+                        > 
+                            Cadastre-se
                         </Button>
 
                         <Button
@@ -56,9 +52,9 @@ const Home: React.FC = () => {
                             size='default'
                             shape='pill'
                             className='min-w-[171px] px-8 py-2 flex items-center justify-center'
-                            onClick={handleGoToLogin} // Redirecionamento para a tela de login
+                            onClick={handleGoToLogin}
                         >
-                                Login
+                            Login
                         </Button>
                     </div>
                 </div>
@@ -66,59 +62,57 @@ const Home: React.FC = () => {
         </section>
 
         {/** search section **/}
-        <section id="search-section">
-            <div className="search-container">
-                <div className="search-content flex gap-40">
-                    <img src={classroomMoldure} alt="classroom" />
-                    <div className="search-content-body flex flex-col items-center mt-24 mr-32">
-                        <h1 className='search-title text-[#006ACB] text-[40px] mb-[44px]'>O que é o AcadeMe?</h1>
-                        <p className='about-search text-[#006ACB] text-[26px] mb-[44px]'>
-                        Com o AcadeMe o aluno é capaz de destacar toda a
-                        sua trajetória acadêmica trazendo visibilidade para
-                        todas atividades feitas na faculdade e credibilidade
-                        para seus conhecimentos.
-                        </p>
-                        <TextBar
-                            variant="default"
-                            textSize="lg"
-                            placeholder="Procurar Perfil..."
-                            iconLeft="search"
-                            hideIconsOnInput
-                        />
-                    </div>
+        <section id="search-section" className="relative h-screen flex items-center justify-center px-8 md:px-16 py-12 md:py-20">
+            <div className="absolute inset-y-0 left-0 w-auto h-full hidden md:block">
+                <img src={moldure} alt="Moldura" className="h-full object-contain rotate-180" />
+            </div>
+            <div className="search-container relative z-10 flex flex-col md:flex-row items-center gap-10 md:gap-40">
+                <img src={classroom} alt="classroom" className="w-80 md:w-[500px] self-start md:self-center" />
+                <div className="search-content-body flex flex-col items-center text-center md:items-start md:text-left md:ml-16">
+                    <h1 className='search-title text-[#006ACB] text-[28px] md:text-[40px] mb-4'>O que é o AcadeMe?</h1>
+                    <p className='about-search text-[#006ACB] text-[18px] md:text-[26px] mb-6 md:mb-10'>
+                    Com o AcadeMe o aluno é capaz de destacar toda a
+                    sua trajetória acadêmica trazendo visibilidade para
+                    todas atividades feitas na faculdade e credibilidade
+                    para seus conhecimentos.
+                    </p>
+                    <TextBar
+                        variant="default"
+                        textSize="lg"
+                        placeholder="Procurar Perfil..."
+                        iconLeft="search"
+                        hideIconsOnInput
+                    />
                 </div>
             </div>
         </section>
 
         {/** share section **/}
-        <section id="share-section" className='bg-gradient-to-r from-[#006ACB] to-[#003465] bg-[length:200%] p-16'>
-            <div className="share-container">
-                <div className="share-content flex gap-56">
-                    <div className="search-content-body flex flex-col items-start mt-24 ml-16">
-                        <h1 className='search-title text-[#F0F2F5] text-[40px] text-justify mb-[44px]'>Compartilhe</h1>
-                        <p className='about-share text-[#F0F2F5] text-[26px] text-start mb-[44px]'>
-                        Você pode compartilhar seu portfólio com
-                        colegas, professores e possíveis recrutadores,
-                        destacando suas habilidades e conquistas acadêmicas.
-                        Tudo isso em um ambiente que valoriza o desenvolvimento do seu potencial.
-                        </p>
-                    </div>
-                    <img src={studentsMoldure} alt="happy-students" />
+        <section id="share-section" className='bg-gradient-to-r from-[#006ACB] to-[#003465] bg-[length:200%] h-screen flex items-center justify-center px-8 md:px-16 py-12 md:py-20'>
+            <div className="share-container flex flex-col md:flex-row items-center gap-10 md:gap-56">
+                <div className="search-content-body flex flex-col items-center text-center md:items-start md:text-left">
+                    <h1 className='share-title text-[#F0F2F5] text-[28px] md:text-[40px] mb-4'>Compartilhe</h1>
+                    <p className='about-share text-[#F0F2F5] text-[18px] md:text-[26px] mb-6 md:mb-10'>
+                    Você pode compartilhar seu portfólio com
+                    colegas, professores e possíveis recrutadores,
+                    destacando suas habilidades e conquistas acadêmicas.
+                    Tudo isso em um ambiente que valoriza o desenvolvimento do seu potencial.
+                    </p>
                 </div>
+                <img src={studentsMoldure} alt="happy-students" className="w-80 md:w-[500px]" />
             </div>
         </section>
 
-         {/** feedback section **/}
-        <section id='feedback-section' className='bg-white p-20 pb-0'>
-            <h1 className='text-[#006ACB] font-bold text-[40px] mb-20'>Feedback dos Usuários</h1>
-            <div className='feedback-container flex items-center justify-center gap-8 ml-40 mr-40' >
-               
-                <div className='message-container flex flex-col items-center text-[#F0F2F5] bg-gradient-to-r from-[#006ACB] to-[#003465] bg-[length:200%] opacity-90 w-[400px] h-[600px] p-10 rounded-xl gap-10'>
+        {/** feedback section **/}
+        <section id='feedback-section' className='bg-white p-10 md:p-20 pb-0'>
+            <h1 className='text-[#006ACB] font-bold text-[28px] md:text-[40px] mb-10 md:mb-20'>Feedback dos Usuários</h1>
+            <div className='feedback-container flex flex-col md:flex-row items-center justify-center gap-8'>
+                <div className='message-container flex flex-col items-center text-[#F0F2F5] bg-gradient-to-r from-[#006ACB] to-[#003465] bg-[length:200%] opacity-90 w-full md:w-[400px] h-auto md:h-[600px] p-6 md:p-10 rounded-xl gap-6 md:gap-10'>
                     <div className='userinfo-container flex items-center gap-4'>
-                        <img src={bioCaique} alt="Avatar" className='min-h-28 min-w-28'  />
-                        <span className='text-2xl'>Caíque C.</span>
+                        <img src={bioCaique} alt="Avatar" className='w-20 md:w-28' />
+                        <span className='text-lg md:text-2xl'>Caíque C.</span>
                     </div>
-                    <p className='about-feedback text-lg mt-6 pl-4 pr-4'>
+                    <p className='about-feedback text-sm md:text-lg mt-4 md:mt-6'>
                     "Essa plataforma foi 
                     essencial para organizar 
                     meus trabalhos acadêmicos. 
@@ -128,65 +122,51 @@ const Home: React.FC = () => {
                     do curso, e ainda é super 
                     fácil de usar!"
                     </p>
-                    <img src={stars} alt="Avaliação" className='mt-12' />
-
+                    <img src={stars} alt="Avaliação" className='mt-6 md:mt-12' />
                 </div>
 
-                <div className='message-container flex flex-col items-center text-[#F0F2F5] bg-gradient-to-r from-[#006ACB] to-[#003465] bg-[length:200%] opacity-90 w-[400px] h-[600px] p-10 rounded-xl gap-10'>
+                <div className='message-container flex flex-col items-center text-[#F0F2F5] bg-gradient-to-r from-[#006ACB] to-[#003465] bg-[length:200%] opacity-90 w-full md:w-[400px] h-auto md:h-[600px] p-6 md:p-10 rounded-xl gap-6 md:gap-10'>
                     <div className='userinfo-container flex items-center gap-4'>
-                        <img src={bioGui} alt="Avatar" className='min-h-28 min-w-28'  />
-                        <span className='text-2xl'>Guilherme V.</span>
+                        <img src={bioGui} alt="Avatar" className='w-20 md:w-28' />
+                        <span className='text-lg md:text-2xl'>Guilherme V.</span>
                     </div>
-                    <p className='about-feedback text-lg mt-6 pl-4 pr-4'>
+                    <p className='about-feedback text-sm md:text-lg mt-4 md:mt-6'>
                     "O site me ajudou a apresentar meus trabalhos de forma profissional. 
                     É ótimo ter um portfólio acessível para mostrar para 
                     possíveis recrutadores ou até mesmo para amigos!"
                     </p>
-                    <img src={stars} alt="Avaliação" className='mt-12' />
-
+                    <img src={stars} alt="Avaliação" className='mt-6 md:mt-12' />
                 </div>
 
-                <div className='message-container flex flex-col items-center text-[#F0F2F5] bg-gradient-to-r from-[#006ACB] to-[#003465] bg-[length:200%] opacity-90 w-[400px] h-[600px] p-10 rounded-xl gap-10'>
+                <div className='message-container flex flex-col items-center text-[#F0F2F5] bg-gradient-to-r from-[#006ACB] to-[#003465] bg-[length:200%] opacity-90 w-full md:w-[400px] h-auto md:h-[600px] p-6 md:p-10 rounded-xl gap-6 md:gap-10'>
                     <div className='userinfo-container flex items-center gap-4'>
-                        <img src={bioLucas} alt="Avatar" className='min-h-28 min-w-28'  />
-                        <span className='text-2xl'>Lucas M.</span>
+                        <img src={bioLucas} alt="Avatar" className='w-20 md:w-28' />
+                        <span className='text-lg md:text-2xl'>Lucas M.</span>
                     </div>
-                    <p className='about-feedback text-lg mt-6 pl-4 pr-4'>
+                    <p className='about-feedback text-sm md:text-lg mt-4 md:mt-6'>
                     "Finalmente encontrei um lugar para centralizar todos os 
                     meus projetos da faculdade. Agora, qualquer pessoa pode 
                     ver meu progresso e as coisas que estudei. 
                     Estou muito satisfeito com a plataforma!"
                     </p>
-                    <img src={stars} alt="Avaliação" className='mt-6 p-' />
-
+                    <img src={stars} alt="Avaliação" className='mt-6 md:mt-12' />
                 </div>
             </div>
 
              {/** footer **/}
-<div className='footer-container flex items-start mt-40 gap-8'>
-    <img src={coloredLogo} alt="Logo"/>
-    <ul className='flex flex-col gap-2 text-[#006ACB] mb-10'>
-        <li className='flex items-center gap-4 font-semibold'><img src={githubLogo} alt="GitLogo" className='h-8 w-8'/><span>github.com/caique18</span></li>
-        <li className='flex items-center gap-4 font-semibold'><img src={githubLogo} alt="GitLogo" className='h-8 w-8'/><span>github.com/lucasmmps</span></li>
-        <li className='flex items-center gap-4 font-semibold'><img src={githubLogo} alt="GitLogo" className='h-8 w-8'/><span>github.com/MikhaelNbg12</span></li>
-        <li className='flex items-center gap-4 font-semibold'><img src={githubLogo} alt="GitLogo" className='h-8 w-8'/><span>github.com/v-gui</span></li>
-    </ul>
-    {/* Nova seção para a imagem moldure */}
-    {/*<div className="image-container flex justify-end ml-auto" style={{ marginTop: '-850px',  marginRight: '-80px'}}>
-        <img src={moldure} alt="Moldura" className="w-[1000px] h-auto" />
-    </div>*/}
-</div>
-      
+            <div className='footer-container flex flex-col md:flex-row items-center md:items-start gap-8 mt-20 mb-8 md:mb-0'>
+                <img src={coloredLogo} alt="Logo" className="w-20 md:w-32" />
+                <ul className='flex flex-col gap-2 text-[#006ACB]'>
+                    <li className='flex items-center gap-4 font-semibold'><img src={githubLogo} alt="GitLogo" className='h-6 md:h-8 w-6 md:w-8'/><span>github.com/caique18</span></li>
+                    <li className='flex items-center gap-4 font-semibold'><img src={githubLogo} alt="GitLogo" className='h-6 md:h-8 w-6 md:w-8'/><span>github.com/lucasmmps</span></li>
+                    <li className='flex items-center gap-4 font-semibold'><img src={githubLogo} alt="GitLogo" className='h-6 md:h-8 w-6 md:w-8'/><span>github.com/MikhaelNbg12</span></li>
+                    <li className='flex items-center gap-4 font-semibold'><img src={githubLogo} alt="GitLogo" className='h-6 md:h-8 w-6 md:w-8'/><span>github.com/v-gui</span></li>
+                </ul>
+            </div>
         </section>
-        <img src={moldure} alt="Moldura" className=" absolute flex bottom-0 right-0 z-0 pointer-events-none w-[700px] h-auto" />
+        <img src={moldure} alt="Moldura" className=" absolute flex bottom-0 right-0 z-0 pointer-events-none w-[700px] h-auto hidden md:block" />
     </div>
-    
-
-
   );
 }
-
-
-
 
 export default Home;
