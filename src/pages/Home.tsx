@@ -104,9 +104,9 @@ const Home: React.FC = () => {
         </section>
 
         {/** feedback section **/}
-        <section id='feedback-section' className='bg-white p-10 md:p-20 pb-0'>
+        <section id='feedback-section' className='bg-white p-10 md:p-20 pb-0 relative'>
             <h1 className='text-[#006ACB] font-bold text-[28px] md:text-[40px] mb-10 md:mb-20'>Feedback dos Usuários</h1>
-            <div className='feedback-container flex flex-col md:flex-row items-center justify-center gap-8'>
+            <div className='feedback-container flex flex-col md:flex-row items-center justify-center gap-8 relative z-10'>
                 <div className='message-container flex flex-col items-center text-[#F0F2F5] bg-gradient-to-r from-[#006ACB] to-[#003465] bg-[length:200%] opacity-90 w-full md:w-[400px] h-auto md:h-[600px] p-6 md:p-10 rounded-xl gap-6 md:gap-10'>
                     <div className='userinfo-container flex items-center gap-4'>
                         <img src={bioCaique} alt="Avatar" className='w-20 md:w-28' />
@@ -152,18 +152,18 @@ const Home: React.FC = () => {
                     <img src={stars} alt="Avaliação" className='mt-6 md:mt-12' />
                 </div>
             </div>
-
-             {/** footer **/}
-            <div className='footer-container flex flex-col md:flex-row items-center md:items-start gap-8 mt-20 mb-8 md:mb-0'>
-                <img src={coloredLogo} alt="Logo" className="w-20 md:w-32" />
-                <ul className='flex flex-col gap-2 text-[#006ACB]'>
-                    <li className='flex items-center gap-4 font-semibold'><img src={githubLogo} alt="GitLogo" className='h-6 md:h-8 w-6 md:w-8'/><span>github.com/caique18</span></li>
-                    <li className='flex items-center gap-4 font-semibold'><img src={githubLogo} alt="GitLogo" className='h-6 md:h-8 w-6 md:w-8'/><span>github.com/lucasmmps</span></li>
-                    <li className='flex items-center gap-4 font-semibold'><img src={githubLogo} alt="GitLogo" className='h-6 md:h-8 w-6 md:w-8'/><span>github.com/MikhaelNbg12</span></li>
-                    <li className='flex items-center gap-4 font-semibold'><img src={githubLogo} alt="GitLogo" className='h-6 md:h-8 w-6 md:w-8'/><span>github.com/v-gui</span></li>
-                </ul>
-            </div>
         </section>
+
+         {/** footer **/}
+        <div className='footer-container flex flex-col md:flex-row items-center md:items-start gap-8 mt-20 mb-8 md:mb-0'>
+            <img src={coloredLogo} alt="Logo" className="w-20 md:w-32" />
+            <ul className='flex flex-col gap-2 text-[#006ACB]'>
+                <li className='flex items-center gap-4 font-semibold'><img src={githubLogo} alt="GitLogo" className='h-6 md:h-8 w-6 md:w-8'/><span>github.com/caique18</span></li>
+                <li className='flex items-center gap-4 font-semibold'><img src={githubLogo} alt="GitLogo" className='h-6 md:h-8 w-6 md:w-8'/><span>github.com/lucasmmps</span></li>
+                <li className='flex items-center gap-4 font-semibold'><img src={githubLogo} alt="GitLogo" className='h-6 md:h-8 w-6 md:w-8'/><span>github.com/MikhaelNbg12</span></li>
+                <li className='flex items-center gap-4 font-semibold'><img src={githubLogo} alt="GitLogo" className='h-6 md:h-8 w-6 md:w-8'/><span>github.com/v-gui</span></li>
+            </ul>
+        </div>
         <img src={moldure} alt="Moldura" className=" absolute flex bottom-0 right-0 z-0 pointer-events-none w-[700px] h-auto hidden md:block" />
     </div>
   );
