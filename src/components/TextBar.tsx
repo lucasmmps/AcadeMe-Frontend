@@ -112,7 +112,7 @@ const TextBar = forwardRef<HTMLInputElement, TextBarProps>(
     const shouldHideIcons = hideIconsOnInput && inputValue.length > 0;
 
     return (
-      <div className="flex flex-col w-full max-w-md">
+      <div className="flex flex-col w-full">
         {label && <label className={cn(labelVariants({ labelSize, labelColor }))}>{label}</label>}
         <div
           className={cn(

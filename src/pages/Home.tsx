@@ -76,6 +76,7 @@ const Home: React.FC = () => {
                     todas atividades feitas na faculdade e credibilidade
                     para seus conhecimentos.
                     </p>
+                    <div className='searchbar-container w-full max-w-md'>
                     <TextBar
                         variant="default"
                         textSize="lg"
@@ -83,6 +84,7 @@ const Home: React.FC = () => {
                         iconLeft="search"
                         hideIconsOnInput
                     />
+                    </div>
                 </div>
             </div>
         </section>
