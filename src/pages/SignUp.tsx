@@ -70,7 +70,7 @@ const SignUp: React.FC = () => {
     };
 
     return (
-        <div className="SignUp flex h-screen flex-col gap-0 2xl:flex-row 2xl:gap-96">
+        <div className="SignUp w-screen flex 2xl:gap-8 2xl:items-start 2xl:justify-start items-center justify-center">
             {/** Left Banner **/}
             <div className="banner hidden 2xl:flex bg-gradient-to-br from-[#006ACB] to-[#003465] p-16 flex-col justify-center items-center w-[472px] h-screen">
                 <Link to="/" className='text-[#006ACB]'><img src={logo} alt="logo" className="banner-logo mb-8" /></Link>
@@ -80,9 +80,10 @@ const SignUp: React.FC = () => {
             </div>
 
             {/** Form **/}
-            <div className="SignUp-form flex items-center justify-center bg-white h-screen">
-                <form onSubmit={handleSubmit} className="w-full max-w-lg p-4 flex flex-col items-center justify-center gap-4">
-                    <h1 className="page-title text-[#006ACB] text-3xl mb-2">Cadastro</h1>
+            <div className='middle-container flex flex-col items-center justify-center my-2 2xl:w-auto w-full px-8'>
+                <h1 className="page-title text-[#006ACB] text-3xl">Cadastro</h1>
+
+                <form onSubmit={handleSubmit} className="flex flex-col items-start justify-start w-full 2xl:max-w-xl 2xl:p-2 relative z-10 gap-4">
                     <TextBar 
                         label="Nome" 
                         name="name" 
@@ -116,26 +117,16 @@ const SignUp: React.FC = () => {
                     />
                     
                     {/** Password Area **/}
-                    <div className="password-container flex items-start p-0 gap-4">
-                        <div className="password-register items-start text-start">
-                            <TextBar 
-                                label="Senha" 
-                                name="password" 
-                                type="password" 
-                                placeholder="Crie uma senha forte" 
-                                onChange={handleChange} 
-                                value={formData.password}
-                            />
-                            <div className="password-requirements text-[#94A2B7] mt-2">
-                                <span>Mínimo 8 dígitos</span><br />
-                                <span>Mínimo 1 número</span><br />
-                                <span>Mínimo 1 letra maiúscula</span><br />
-                                <span>Mínimo 1 letra minúscula</span><br />
-                                <span>Mínimo 1 caractere especial</span>
-                            </div>
-                        </div>
+                    <div className="password-container w-auto flex flex-col md:flex-row items-start 2xl:gap-8 gap-4">
                         <TextBar 
-                            label="Confirme sua senha" 
+                            label="Senha" 
+                            name="password" 
+                            type="password" 
+                            placeholder="Crie uma senha forte" 
+                            onChange={handleChange} 
+                        />
+                        <TextBar 
+                            label="Confirme a senha" 
                             name="confirmPassword" 
                             type="password" 
                             placeholder="Confirme sua senha" 
@@ -143,15 +134,21 @@ const SignUp: React.FC = () => {
                             value={formData.confirmPassword}
                         />
                     </div>
-                    <Button type="submit" ref={ref} className="p-4 mt-12"> Prosseguir </Button>
+                    <div className="password-requirements text-start text-[#94A2B7] text-sm mb-4">
+                                <ul>Mínimo 8 dígitos</ul>
+                                <ul>Mínimo 1 número</ul>
+                                <ul>Mínimo 1 letra maiúscula</ul>
+                                <ul>Mínimo 1 letra minúscula</ul>
+                                <ul>Mínimo 1 caractere especial</ul>
+                    </div>
                 </form>
+                <Button type="submit" ref={ref} className="p-4"> Prosseguir </Button>
             </div>
-
             {/** Right Moldure **/}
             <img 
                 src={moldure} 
                 alt="Moldura" 
-                className="hidden 2xl:flex absolute bottom-0 right-0 w-[562px] h-auto z-0 pointer-events-none" 
+                    className="hidden 2xl:flex absolute bottom-0 right-0 w-[562px] h-auto z-0 pointer-events-none" 
             />
         </div>
     );
